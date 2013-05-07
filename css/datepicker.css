@@ -2,7 +2,7 @@
  * Datepicker for Bootstrap
  *
  * Copyright 2012 Stefan Petre
- * Improvements by Andrew Rowls
+ * Improvements by Andrew Rowls and Neil Monroe
  * Licensed under the Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
  *
@@ -43,17 +43,6 @@
   top: -7px;
   left: 6px;
 }
-.datepicker-dropup:before {
-  content: '';
-  display: inline-block;
-  border-left: 7px solid transparent;
-  border-right: 7px solid transparent;
-  border-top: 7px solid #ccc;
-  border-bottom-color: rgba(0, 0, 0, 0.2);
-  position: absolute;
-  bottom: -7px;
-  left: 6px;
-}
 .datepicker-dropdown:after {
   content: '';
   display: inline-block;
@@ -63,6 +52,17 @@
   position: absolute;
   top: -6px;
   left: 7px;
+}
+.datepicker-dropup:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #ccc;
+  border-top-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  bottom: -7px;
+  left: 6px;
 }
 .datepicker-dropup:after {
   content: '';
