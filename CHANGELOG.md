@@ -1,6 +1,15 @@
 Changelog
 =========
 
+v1.0.3
+------
+
+* Added support for datepicker to appear above the input element.
+
+
+[ 5/7/2013: Forked from https://github.com/eternicode/bootstrap-datepicker ]
+
+
 v1.0.1
 ------
 
