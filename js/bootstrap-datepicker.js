@@ -43,6 +43,7 @@
 		this.isInput = this.element.is('input');
 		this.component = this.element.is('.date') ? this.element.find('.add-on, .btn') : false;
 		this.hasInput = this.component && this.element.find('input').length;
+		this.position = options.position||'bottom';
 		if(this.component && this.component.length === 0)
 			this.component = false;
 
@@ -60,7 +61,12 @@
 		if(this.isInline) {
 			this.picker.addClass('datepicker-inline').appendTo(this.element);
 		} else {
-			this.picker.addClass('datepicker-dropdown dropdown-menu');
+		    if (this.position == 'top') {
+		        this.picker.addClass('datepicker-dropup');
+		    } else {
+		        this.picker.addClass('datepicker-dropdown');
+		    }
+		    this.picker.addClass('dropdown-menu');
 		}
 		if (this.isRTL){
 			this.picker.addClass('datepicker-rtl');
@@ -214,7 +220,7 @@
 				[$(document), {
 					mousedown: $.proxy(function (e) {
 						// Clicked outside the datepicker, hide it
-						if ($(e.target).closest('.datepicker.datepicker-inline, .datepicker.datepicker-dropdown').length === 0) {
+					    if ($(e.target).closest('.datepicker.datepicker-inline, .datepicker.datepicker-dropdown, .datepicker.datepicker-dropup').length === 0) {
 							this.hide();
 						}
 					}, this)
@@ -358,7 +364,7 @@
 			var offset = this.component ? this.component.parent().offset() : this.element.offset();
 			var height = this.component ? this.component.outerHeight(true) : this.element.outerHeight(true);
 			this.picker.css({
-				top: offset.top + height,
+				top: (this.position == 'top' ? offset.top - this.picker.outerHeight(true) : offset.top + height),
 				left: offset.left,
 				zIndex: zIndex
 			});
